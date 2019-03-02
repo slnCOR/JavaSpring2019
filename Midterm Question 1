@@ -1,0 +1,43 @@
+package arrayloader;
+
+/**
+ *
+ * @author Michael
+ */
+ 
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayLoader {
+    
+    private static int[] createArray(){
+        int x;
+        Scanner scan = new Scanner (System.in);
+        System.out.println("How many numbers are in your array?");
+        x = scan.nextInt();
+        int[] numbers = new int[x];
+        return numbers;
+        
+    }
+    
+    private static int[] populateArray(int[] x) {
+        int n;
+        Scanner scan = new Scanner (System.in);
+        for (int i=0; i < x.length; i++) {
+            System.out.println("Enter number to be placed in Array: ");
+            n = scan.nextInt();
+            x[i] = n;
+        }
+        return x;
+    }
+    
+    private static void printArray(int[] x) {
+        System.out.println(Arrays.toString(x));
+    }
+     
+    public static void main(String[] args) {
+        int[] newArray = createArray();
+        populateArray(newArray);
+        printArray(newArray);
+    }
+}
