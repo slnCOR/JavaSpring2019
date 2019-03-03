@@ -1,0 +1,36 @@
+package oddfib;
+
+/**
+ * This is a nonworking version, can not get the while loop to execute correctly.
+ * @author Michael
+ */
+public class OddFib {
+
+    /**
+     * @param args the command line arguments
+     */
+    private static int sumOddFib(int num){
+        int a = 0;
+        int b = 1;
+        int f = 1;
+        int sum = 0;
+        
+        while (f<=num) {
+            if(num%2 == 1) {
+                sum += f;
+                f = a + b;
+                a = b;
+                b = f;
+            }else{
+                return sum;
+            }
+        }return sum;
+    }
+
+    public static void main(String[] args) {
+        int x = 1000;
+        int total = sumOddFib(x);
+        System.out.println(total);
+    }
+    
+}
