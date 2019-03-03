@@ -1,0 +1,53 @@
+package employee;
+
+/**
+ *
+ * @author Michael
+ */
+import java.text.DecimalFormat;
+
+public class Employee {
+
+    String name;
+    String idnumber;
+    String title;
+    double hourlyrate;
+    double hours;
+    
+    Employee(String n, String i, String t, Double p, Double h){
+    this.name = n;
+    this.idnumber = i;
+    this.title = t;
+    this.hourlyrate = p;
+    this.hours = h;
+    }
+    
+    private double weeklyRate(double h, double r){
+        double weekly = h * r;
+        return weekly;
+    }
+    
+    private void printInfo(){
+        DecimalFormat ft = new DecimalFormat("#.##");
+        System.out.println("Employee Name: " + this.name);
+        System.out.println("Employee ID Number: " + this.idnumber);
+        System.out.println("Employee Title: " + this.title);
+        System.out.printf("Hourly Rate: " + ft.format(this.hourlyrate));
+        System.out.println();
+        System.out.printf("Hours Worked: " + ft.format(this.hours));
+        System.out.println();
+        System.out.printf("Weekly Rate: " + ft.format(weeklyRate(this.hourlyrate, this.hours)));
+        System.out.println();
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        Employee one = new Employee("John", "01", "Boss", 14.50, 40.00);
+        Employee two = new Employee("Frank", "02", "Vice President", 10.00, 40.00);
+        Employee three = new Employee("Erin", "03", "Integration Manager", 9.50, 40.00);
+        one.printInfo();
+        two.printInfo();
+        three.printInfo();
+    }
+    
+}
